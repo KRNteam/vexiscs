@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="/assets/vexis-logo.png" type="image/png">
+  <title>Управление сайтом — VEXIS</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <a class="brand" href="/" aria-label="VEXIS — открыть сайт"><img src="/assets/vexis-logo.png" alt=""><span>VEXIS <i>|</i> CS2</span></a>
+    <div class="header-actions">
+      <a class="button secondary" href="/">← Открыть сайт</a>
+      <button class="button secondary" id="logoutButton" type="button">Выйти</button>
+    </div>
+  </header>
+  <main class="admin-shell">
+    <div class="intro">
+      <div class="eyebrow">Локальная панель управления</div>
+      <h1>Содержимое сайта</h1>
+      <p>Добавляйте и обновляйте информацию через формы. Изменения сохраняются в проекте и сразу видны на сайте.</p>
+    </div>
+    <div class="layout">
+      <nav class="tabs" aria-label="Разделы содержимого">
+        <button type="button" class="tab active" data-type="players">Игроки</button>
+        <button type="button" class="tab" data-type="news">Новости</button>
+        <button type="button" class="tab" data-type="matches">Матчи</button>
+        <button type="button" class="tab" data-type="tournaments">Турниры</button>
+        <button type="button" class="tab" data-type="shop">Магазин</button>
+      </nav>
+      <section class="workspace">
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+        <div class="editor-grid">
+          <section class="panel">
+            <div class="panel-heading">
+              <div><div class="eyebrow" id="sectionEyebrow">Состав команды</div><h2 id="formTitle">Добавить игрока</h2></div>
+              <button type="button" id="cancelEdit" class="text-button hidden">Отмена</button>
+            </div>
+            <form id="entryForm"></form>
+          </section>
+          <section class="panel entries-panel">
+            <div class="panel-heading"><div><div class="eyebrow">Сохранённые записи</div><h2 id="listTitle">Игроки</h2></div><span id="entryCount" class="count">0</span></div>
+            <div id="entryList" class="entry-list"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>

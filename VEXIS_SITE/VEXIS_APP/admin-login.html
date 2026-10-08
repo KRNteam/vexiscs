@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="/assets/vexis-logo.png" type="image/png">
+  <title>Вход в панель — VEXIS</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 20px; background: #0b0b0d; color: #f5f5f6; font: 14px Arial, sans-serif; }
+    main { width: min(100%, 390px); padding: 30px; border: 1px solid #2a292f; background: #131316; }
+    .brand { margin-bottom: 28px; font-size: 13px; font-weight: 800; letter-spacing: .06em; }
+    .brand i { color: #fa4c9b; font-style: normal; }
+    p { color: #a1a0a8; font-size: 12px; line-height: 1.6; }
+    label { display: block; margin: 20px 0 7px; color: #d0cfd5; font-size: 11px; font-weight: 700; }
+    input { width: 100%; padding: 12px; border: 1px solid #38373e; background: #0e0e10; color: white; font: inherit; }
+    input:focus { outline: 1px solid #fa4c9b; }
+    button { width: 100%; min-height: 43px; margin-top: 14px; border: 1px solid #fa4c9b; background: #fa4c9b; color: #1c0e15; font-size: 11px; font-weight: 800; cursor: pointer; }
+    #message { min-height: 18px; margin: 12px 0 0; color: #ffc0c6; font-size: 11px; }
+    a { color: #f5f5f6; font-size: 11px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">VEXIS <i>|</i> CS2</div>
+    <h1>Вход в админку</h1>
+    <p>Введите пароль администратора, чтобы управлять содержимым сайта.</p>
+    <form id="loginForm">
+      <label for="password">Пароль</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button type="submit">Войти</button>
+      <div id="message" role="alert" aria-live="polite"></div>
+    </form>
+    <a href="/">← На сайт</a>
+  </main>
+  <script>
+    const form = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+      message.textContent = "";
+      const button = form.querySelector("button");
+      button.disabled = true;
+      try {
+        const response = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ password: form.elements.password.value })
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || "Не удалось войти.");
+        location.replace("/admin.html");
+      } catch (error) {
+        message.textContent = error.message || "Ошибка соединения с сервером.";
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

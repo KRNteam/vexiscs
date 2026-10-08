@@ -1,0 +1,56 @@
+{
+  "players": [
+    {
+      "id": "egor-tikhonkiy",
+      "firstName": "Егор",
+      "lastName": "Ибрагимов",
+      "nickname": "Tikhonkiy",
+      "country": "Россия",
+      "role": "Entry",
+      "photo": "assets/egor-tikhonkiy.png",
+      "stats": [],
+      "matches": [],
+      "tournaments": []
+    },
+    {
+      "id": "akim-de-er",
+      "firstName": "Аким",
+      "lastName": "Фомин",
+      "nickname": "de-er",
+      "country": "Россия",
+      "role": "Рифлер / саппорт",
+      "photo": "assets/akim-de-er.png",
+      "stats": [],
+      "matches": [],
+      "tournaments": []
+    },
+    {
+      "id": "daniil-lakt1onowy",
+      "firstName": "Даниил",
+      "lastName": "Лактионов",
+      "nickname": "Lakt1onowy",
+      "country": "Россия",
+      "role": "IGL / рифлер",
+      "photo": "assets/daniil-lakt1onowy.png",
+      "stats": [],
+      "matches": [],
+      "tournaments": []
+    },
+    {
+      "id": "dmitry-loewee",
+      "firstName": "Дмитрий",
+      "lastName": "Озеров",
+      "nickname": "loewee",
+      "country": "Россия",
+      "role": "Люрк",
+      "photo": "assets/dmitry-loewee.png",
+      "stats": [],
+      "matches": [],
+      "tournaments": []
+    }
+  ],
+  "news": [],
+  "matches": [],
+  "tournaments": [],
+  "shop": []
+}
